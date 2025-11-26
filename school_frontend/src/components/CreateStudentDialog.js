@@ -25,13 +25,11 @@ export function CreateStudentDialog({ onStudentCreated }) {
     group: "",
   });
 
-  // Cargar grupos para el select
   useEffect(() => {
     if (open) {
       fetch(`${API_BASE_URL}/student-groups/`)
         .then((res) => res.json())
         .then((data) => {
-          // Soporta si la respuesta de grupos viene paginada o en lista plana
           setGroups(data.results ? data.results : data);
         });
     }
